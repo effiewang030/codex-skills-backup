@@ -1,0 +1,4 @@
+interface:
+  display_name: "cc 的投资工作流"
+  short_description: "L1/L2/L3 founder meeting investment workflow"
+  default_prompt: "按 cc 的投资工作流帮我看这个项目。"
