@@ -1,0 +1,4 @@
+interface:
+  display_name: "VC 投资研究阅读助手"
+  short_description: "批量阅读 AI/VC 研究链接并生成投资视角分析"
+  default_prompt: "帮我按 VC 投资研究阅读助手分析这些链接。"
