@@ -1,0 +1,4 @@
+interface:
+  display_name: "KAT AI Investment Research"
+  short_description: "AI early-stage investment research workflows"
+  default_prompt: "Use $kat-ai-investment-research to review this startup deal and produce a structured investment research report."
