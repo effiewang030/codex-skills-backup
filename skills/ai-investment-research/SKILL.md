@@ -58,7 +58,8 @@ For ASR or founder-call transcripts:
 ## Module References
 
 Read only the relevant reference before executing a module:
-- For one-pagers, evidence maps, attacks, questions, memos, candidate audits, market sizing, deal tracking, meeting consensus, and Fay comments, read [modules.md](references/modules.md).
+- For one-pagers, evidence maps, attacks, questions, memos, candidate audits, market sizing, deal tracking, and meeting consensus, read [modules.md](references/modules.md).
+- For Fay comments, use the standalone `fay-investment-comment` skill when available; it owns Fay's preference library and output rules. Keep `fay-comment.md` as this workflow's expected output filename.
 - For final document structure and file naming, read [outputs.md](references/outputs.md).
 
 ## Decision Quality Checklist
