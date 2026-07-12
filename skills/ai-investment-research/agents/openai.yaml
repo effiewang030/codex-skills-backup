@@ -1,4 +1,0 @@
-interface:
-  display_name: "AI Investment Research"
-  short_description: "AI early-stage investment research workflows"
-  default_prompt: "Use $ai-investment-research to review this startup deal and produce a structured investment research report."
