@@ -1,0 +1,4 @@
+interface:
+  display_name: "Fay 投资评论模拟"
+  short_description: "基于 Fay 偏好库模拟项目投资 comments"
+  default_prompt: "帮我用 Fay 的视角模拟一下这个项目的投资 comments。"
