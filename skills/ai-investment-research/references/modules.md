@@ -228,29 +228,18 @@ Rules:
 
 ## fay-investment-comment
 
-Purpose: simulate how Fay might comment on a deal, using recorded preferences when available.
+Purpose: delegate Fay comment generation to the standalone `fay-investment-comment` skill so Fay preferences stay in one source of truth.
 
-Prerequisite:
-- At minimum, read `one-pager.md` or equivalent deal context.
-- If a `references/fay-preferences.md` file exists in the user's project or skill, read it before simulating. Do not invent private preference records.
+When this module is reached:
+- Read the standalone skill at `~/.codex/skills/fay-investment-comment/SKILL.md` if it exists.
+- Read its `references/fay-preferences.md` before simulating comments.
+- Provide the current deal context, at minimum `one-pager.md`; include `investment-memo.md`, `attack.md`, and `evidence-map.md` when available.
+- Write the result to this workflow's `fay-comment.md`, and include it in `full-report.md` under the Fay Comments section.
 
-Evaluate eight dimensions:
-- Product sharpness, highest weight.
-- Bottom-up vs top-down motion.
-- Founder pattern and founder-market fit.
-- Strategic disruptiveness.
-- Moat authenticity.
-- Probability x payoff.
-- Competitive landscape.
-- Meaningful stake.
-
-Output:
-- Eight-dimension prediction table.
-- Simulated comments in a direct, concrete, non-academic style.
-- Likely decision.
-- Historical analogy only if real preference records are available.
-- Disclaimer: "模拟预判不代表 Fay 实际判断。"
+Fallback:
+- If the standalone skill is unavailable, produce only a conservative Fay-style placeholder based on known project evidence and explicitly state that the Fay preference library was unavailable.
 
 Constraints:
 - Do not fabricate Fay preferences or quotes.
 - Do not exceed the evidence in the material.
+- Always include the disclaimer: "模拟预判不代表 Fay 实际判断。"
