@@ -2,7 +2,7 @@
 
 更新时间：2026-07-13
 
-这份文档是 7 个 VC / AI 投研相关 Codex skills 的总索引与使用说明。原始 skill 已安装到本机 Codex skills 目录，可在后续任务中按触发场景调用。
+这份文档是 8 个 VC / AI 投研相关 Codex skills 的总索引与使用说明。原始 skill 已安装到本机 Codex skills 目录，可在后续任务中按触发场景调用。
 
 ## 已安装 skills
 
@@ -10,6 +10,7 @@
 |---|---|---|
 | `vc-meeting-notes` | VC 会议转写清洗与 IC 会议纪要 | 录音转写、Recall 文本、创始人会议纪要、IC 材料 |
 | `vc-voice-mining` | 投资人公开发声与投资哲学深挖 | 挖某个投资人的观点、quotes、podcast、blog、philosophy |
+| `vc-research-reader` | VC/AI 投资研究链接阅读与批量分析 | research links、阅读清单、xlsx tracker、网页导读、投资文章分析 |
 | `pr-filter` | 媒体稿件 PR 属性识别与有效信息萃取 | 这篇报道可信吗、是不是 PR、哪些信息可用 |
 | `hightech-researcher-mining` | 深科技研究者/技术领袖调研 | 教授/CTO/PhD 背景、研究图谱、会议问题、red flags |
 | `hype-check` | 热赛道退烧诊断与本质判断 | 赛道是不是泡沫、需求真伪、readiness、该不该投 |
@@ -22,6 +23,7 @@
 
 1. **收到项目或材料**
    - 用 `deal-intake` 判断走 L1 / L2 / L3。
+   - 如果是研究链接、阅读清单或 xlsx tracker，用 `vc-research-reader` 批量阅读和生成投资分析。
    - 如果是媒体报道，先用 `pr-filter` 做 PR 指纹和信息分层。
    - 如果有创始人会议录音或转写，用 `vc-meeting-notes` 清洗或生成纪要。
 
@@ -77,6 +79,31 @@
 - 深度 > 广度。
 - 优先提取投资哲学、反直觉判断、AI 方向预判、创始人筛选标准、失败教训、决策框架。
 - 避免泛泛 PR 话术和没有论据的预测。
+
+### vc-research-reader
+
+用途：处理 VC/AI/科技投资研究链接，抓取网页内容，并生成中文投资视角分析。
+
+典型输入：
+
+- 一个 URL 或多个 URL
+- xlsx research tracker / reading list
+- 需要保存结果的输出目录
+- `.md` 或 `.txt` 输出格式偏好
+
+核心流程：
+
+- 先预分类 URL：PDF、社交媒体、音视频、普通网页、登录/付费墙。
+- 抓取内容后判断类型：单篇文章、博客首页、VC 机构主页、多人趋势报告、行业/数据报告、投资案例、思想性文章。
+- 每篇文章输出固定 header、全文摘要、投资视角分析，并保存到对应文件夹。
+- 如果输入是 xlsx tracker，处理后更新状态和标题。
+- 批量处理 3 篇以上时，生成 `index.md` 汇总主题交叉分析和优先阅读建议。
+
+使用边界：
+
+- 音视频链接默认跳过，需要用户提供文字版或转写稿。
+- 付费墙或登录限制要明确标注，不补写无法抓到的内容。
+- 如果核心问题是文章可信度或 PR 属性，先用 `pr-filter`。
 
 ### pr-filter
 
@@ -216,6 +243,7 @@ AI stack 五层：
 | 场景 | 推荐组合 |
 |---|---|
 | 收到 BP，准备第一次见创始人 | `deal-intake` L1 + `pr-filter` + `hype-check` Mode A |
+| 批量阅读 VC/AI 研究链接 | `vc-research-reader` + 必要时 `pr-filter` / `hype-check` |
 | 见完创始人，有转写稿 | `vc-meeting-notes` Mode A/B + `deal-intake` L2 |
 | 热赛道里看单家公司 | `hype-check` Mode B + `deal-intake` + `pr-filter` |
 | AI infra 公司判断壁垒 | `ai-infra-learner` Mode C + Mode B + `hype-check` Mode B |
@@ -228,6 +256,7 @@ AI stack 五层：
 ```text
 /Users/wangjiayue/.codex/skills/vc-meeting-notes
 /Users/wangjiayue/.codex/skills/vc-voice-mining
+/Users/wangjiayue/.codex/skills/vc-research-reader
 /Users/wangjiayue/.codex/skills/pr-filter
 /Users/wangjiayue/.codex/skills/hightech-researcher-mining
 /Users/wangjiayue/.codex/skills/hype-check
@@ -240,6 +269,7 @@ AI stack 五层：
 ```text
 /Users/wangjiayue/Desktop/vc-meeting-notes.skill
 /Users/wangjiayue/Desktop/vc-voice-mining.skill
+/Users/wangjiayue/Desktop/SKILL_副本.md
 /Users/wangjiayue/Desktop/pr-filter.skill
 /Users/wangjiayue/Desktop/hightech-researcher-mining.skill
 /Users/wangjiayue/Desktop/hype-check.skill
