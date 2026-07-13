@@ -1,0 +1,7 @@
+interface:
+  display_name: "Nic VC Skills"
+  short_description: "Route VC tasks to specialist skills"
+  default_prompt: "Use $nic-vc-skills to choose the right VC research workflow for this task."
+
+policy:
+  allow_implicit_invocation: true
