@@ -1,0 +1,4 @@
+interface:
+  display_name: "cc-专家访谈逐字稿"
+  short_description: "Faithful expert interview transcript cleanup"
+  default_prompt: "Use $cc-expert-interview-transcript to clean this ASR transcript into a faithful expert-interview transcript."
