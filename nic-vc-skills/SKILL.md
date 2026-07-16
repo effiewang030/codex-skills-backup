@@ -1,6 +1,6 @@
 ---
 name: nic-vc-skills
-description: Lightweight router and workflow coordinator for Nic's VC and AI investment research skills. Use when the user asks to use "nic", "nic-vc-skills", "Nic VC workflow", "那套 VC skills", or gives an investment research task that may need routing across deal intake, VC meeting notes, PR filtering, research link reading, hype checking, investor voice mining, high-tech researcher mining, or AI infrastructure analysis.
+description: Lightweight router and workflow coordinator for Nic's VC and AI investment research skills. Use when the user asks to use "nic", "nic-vc-skills", "Nic VC workflow", "那套 VC skills", or gives an investment research task that may need routing across deal intake, expert/founder transcript cleaning, VC meeting notes, PR filtering, research link reading, hype checking, investor voice mining, high-tech researcher mining, or AI infrastructure analysis.
 ---
 
 # Nic VC Skills
@@ -14,6 +14,7 @@ Do not copy the specialist skills into context unless the task needs them. Route
 | Need | Use |
 |---|---|
 | Turn BP, notes, founder calls, or raw materials into investment work product | `deal-intake` |
+| Clean ASR into faithful expert/founder interview transcript before analysis | `cc-expert-interview-transcript` |
 | Clean Recall/Otter/Feishu transcript or write IC meeting notes | `vc-meeting-notes` |
 | Judge whether media coverage is PR and extract usable facts | `pr-filter` |
 | Process research links, reading lists, xlsx trackers, or AI/VC articles into investment analysis | `vc-research-reader` |
@@ -56,7 +57,9 @@ Add `hype-check` after reading if the user wants a sector/company reality check 
 
 ### Meetings and People
 
-Use `vc-meeting-notes` when the user provides meeting recordings, transcripts, or messy call notes.
+Use `cc-expert-interview-transcript` when the user provides ASR/raw transcript text and wants a faithful逐字稿/step2 transcript before analysis.
+
+Use `vc-meeting-notes` when the user wants meeting notes, IC notes, or a more summarized meeting record.
 
 Use `vc-voice-mining` for investors and fund partners.
 
