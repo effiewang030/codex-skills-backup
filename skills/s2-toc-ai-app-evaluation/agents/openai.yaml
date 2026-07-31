@@ -1,0 +1,4 @@
+interface:
+  display_name: "S2 ToC AI 应用测评"
+  short_description: "分级测评 ToC AI 应用并输出可信、可追溯的研究结论"
+  default_prompt: "使用 $s2-toc-ai-app-evaluation 对这个 ToC AI 应用做一份 L1 测评。"
